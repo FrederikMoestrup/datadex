@@ -124,6 +124,12 @@ public class PokemonService {
             dto.setLegendary(speciesData != null && speciesData.isLegendary());
             dto.setMythical(speciesData != null && speciesData.isMythical());
 
+            String area = speciesData.getPalParkEncounters() != null && !speciesData.getPalParkEncounters().isEmpty()
+                    ? speciesData.getPalParkEncounters().get(0).getArea().getName()
+                    : null;
+            dto.setArea(area);
+
+
             return dto;
         } catch (Exception e) {
             e.printStackTrace();
