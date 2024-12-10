@@ -112,13 +112,8 @@ public class PokemonService {
                     : new ArrayList<>();
             dto.setEggGroups(eggGroups);
 
-            String flavorText = speciesData != null && speciesData.getFlavorTextEntries() != null
-                    ? speciesData.getFlavorTextEntries().stream()
-                    .filter(entry -> entry.getLanguage() != null && "en".equals(entry.getLanguage().getName()))
-                    .map(FlavorTextEntry::getFlavorText)
-                    .findFirst()
-                    .orElse("No flavor text available.")
-                    : "No flavor text available.";
+            // Fetch flavor text in English from Emerald version
+            String flavorText = getFlavorTextFromEmerald(speciesData);
             dto.setFlavorTextEntries(flavorText);
 
             dto.setLegendary(speciesData != null && speciesData.isLegendary());
@@ -151,5 +146,19 @@ public class PokemonService {
             return 0; // Return 0 if parsing fails
         }
     }
+    private static String getFlavorTextFromEmerald(PokemonSpeciesPartialData speciesData) {
+        if (speciesData != null && speciesData.getFlavorTextEntries() != null) {
+            // Filter flavor text entries for the "emerald" version and "en" language
+            return speciesData.getFlavorTextEntries().stream()
+                    .filter(entry -> entry.getLanguage() != null && "en".equals(entry.getLanguage().getName())) // Check for English language
+                    .filter(entry -> entry.getVersion() != null && "emerald".equals(entry.getVersion().getName())) // Check for Emerald version
+                    .filter(entry -> entry.getFlavorText() != null) // Ensure that we have flavor text
+                    .findFirst() // Take the first available entry
+                    .map(FlavorTextEntry::getFlavorText) // Extract flavor text
+                    .orElse("No flavor text available.");
+        }
+        return "No flavor text available.";
+    }
+
 
 }

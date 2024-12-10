@@ -3,6 +3,8 @@ package dat.services;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import org.intellij.lang.annotations.Language;
+
 import java.util.List;
 
 @Data
@@ -11,6 +13,7 @@ public class PokemonSpeciesPartialData {
     @JsonProperty("egg_groups") // Map the "egg_groups" field
     private List<EggGroup> eggGroups;
     private Color color;
+    @JsonProperty("flavor_text_entries")
     private List<FlavorTextEntry> flavorTextEntries;
     private boolean legendary;
     private boolean mythical;
@@ -34,14 +37,24 @@ public class PokemonSpeciesPartialData {
     @Data
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class FlavorTextEntry {
+        @JsonProperty("flavor_text")
         private String flavorText;
+        @JsonProperty("language")
         private Language language;
+        @JsonProperty("version")
+        private Version version;
 
         @Data
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class Language {
             private String name;
         }
+        @Data
+        @JsonIgnoreProperties(ignoreUnknown = true)
+        public static class Version {
+            private String name;
+        }
+
     }
 
     @Data
