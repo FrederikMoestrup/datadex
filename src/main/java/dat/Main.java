@@ -10,7 +10,7 @@ import jakarta.persistence.EntityManagerFactory;
 public class Main {
     public static void main(String[] args) {
 
-        PokemonDTO pokemon = PokemonService.getPokemon(1); // Fetch Pokémon with ID 1
+        PokemonDTO pokemon = PokemonService.getPokemon(258); // Fetch Pokémon with ID 1
         System.out.println(pokemon);
 
     }

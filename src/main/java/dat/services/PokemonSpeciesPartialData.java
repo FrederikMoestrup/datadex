@@ -14,6 +14,13 @@ public class PokemonSpeciesPartialData {
     private List<FlavorTextEntry> flavorTextEntries;
     private boolean legendary;
     private boolean mythical;
+    private EvolutionChain evolution_chain;
+
+    @Data
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class EvolutionChain {
+        private String url;
+    }
 
     @JsonProperty("pal_park_encounters")
     private List<PalParkEncounter> palParkEncounters;

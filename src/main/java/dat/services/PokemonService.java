@@ -129,12 +129,27 @@ public class PokemonService {
                     : null;
             dto.setArea(area);
 
+            // Parse evolution_chain ID from URL
+            dto.setEvolutionChain(speciesData.getEvolution_chain() != null
+                    ? extractIdFromUrl(speciesData.getEvolution_chain().getUrl())
+                    : 0);
 
             return dto;
         } catch (Exception e) {
             e.printStackTrace();
         }
         return new PokemonDTO();
+    }
+
+    private static int extractIdFromUrl(String url) {
+        try {
+            // Split the URL by `/` and parse the last segment as an integer
+            String[] parts = url.split("/");
+            return Integer.parseInt(parts[parts.length - 1]);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0; // Return 0 if parsing fails
+        }
     }
 
 }
