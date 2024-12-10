@@ -70,9 +70,11 @@ public class PokemonService {
             // Map and combine the fields into the DTO
             PokemonDTO dto = new PokemonDTO();
             dto.setId(pokemonData.getId());
-            dto.setName(pokemonData.getName());
+            dto.setName(speciesData.getName());
             dto.setHeight(pokemonData.getHeight());
             dto.setWeight(pokemonData.getWeight());
+            dto.setLegendary(speciesData.is_legendary());
+            dto.setMythical(speciesData.is_mythical());
 
             // Map types safely
             List<String> types = pokemonData.getTypes() != null
@@ -115,9 +117,6 @@ public class PokemonService {
             // Fetch flavor text in English from Emerald version
             String flavorText = getFlavorTextFromEmerald(speciesData);
             dto.setFlavorTextEntries(flavorText);
-
-            dto.setLegendary(speciesData != null && speciesData.isLegendary());
-            dto.setMythical(speciesData != null && speciesData.isMythical());
 
             String area = speciesData.getPalParkEncounters() != null && !speciesData.getPalParkEncounters().isEmpty()
                     ? speciesData.getPalParkEncounters().get(0).getArea().getName()

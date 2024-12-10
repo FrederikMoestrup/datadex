@@ -10,7 +10,6 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true) // Ignore unknown properties at the root level
 public class PokemonPartialData {
     private int id;
-    private String name;
     private double height;
     private double weight;
     private List<TypeWrapper> types;

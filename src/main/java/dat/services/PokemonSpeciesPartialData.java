@@ -12,11 +12,14 @@ import java.util.List;
 public class PokemonSpeciesPartialData {
     @JsonProperty("egg_groups") // Map the "egg_groups" field
     private List<EggGroup> eggGroups;
+    private String name;
     private Color color;
+    @JsonProperty("is_legendary")
+    private boolean is_legendary;
+    @JsonProperty("is_mythical")
+    private boolean is_mythical;
     @JsonProperty("flavor_text_entries")
     private List<FlavorTextEntry> flavorTextEntries;
-    private boolean legendary;
-    private boolean mythical;
     private EvolutionChain evolution_chain;
 
     @Data

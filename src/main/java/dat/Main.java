@@ -4,8 +4,6 @@ import dat.config.ApplicationConfig;
 import dat.config.HibernateConfig;
 import dat.config.Populate;
 import dat.config.PopulateHoenn;
-import dat.dtos.PokemonDTO;
-import dat.services.PokemonService;
 import jakarta.persistence.EntityManagerFactory;
 
 public class Main {
