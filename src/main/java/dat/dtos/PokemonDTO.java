@@ -1,14 +1,12 @@
 package dat.dtos;
 
 import dat.entities.Pokemon;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+import lombok.*;
 
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 public class PokemonDTO {
 
@@ -26,6 +24,7 @@ public class PokemonDTO {
     private boolean isLegendary;
     private boolean isMythical;
     private String area;
+
 
     // Constructor to create DTO from the entity
     public PokemonDTO(Pokemon pokemon) {
