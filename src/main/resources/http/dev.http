@@ -1,0 +1,153 @@
+### A simple get request to the test endpoint. No need for login
+GET http://localhost:7070/api/auth/test/
+
+### Create a new user - this one will only get a USER role by default
+POST http://localhost:7070/api/auth/register/
+
+{
+    "username": "user",
+    "password": "test123"
+}
+
+###
+POST http://localhost:7070/api/auth/login/
+
+{
+    "username": "user",
+    "password": "test123"
+}
+
+> {%
+    client.global.set("jwt_token", response.body.token);
+    //console.log("JWT Token:", client.global.get("jwt_token"));
+%}
+
+###
+GET http://localhost:7070/api/protected/user_demo/
+Accept: application/json
+Authorization: Bearer {{jwt_token}}
+
+###
+GET http://localhost:7070/api/protected/admin_demo/
+Accept: application/json
+Authorization: Bearer {{jwt_token}}
+
+### Add admin role to user
+POST http://localhost:7070/api/auth/user/addrole/
+Accept: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+    "role": "admin"
+}
+Accept: application/json
+Authorization: Bearer {{jwt_token}}
+
+###
+
+GET http://localhost:7070/api/pokemon
+Authorization: Bearer {{jwt_token}}
+###
+
+GET http://localhost:7070/api/pokemon/1
+Authorization: Bearer {{jwt_token}}
+###
+
+POST http://localhost:7070/api/pokemon
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "id": 151,
+  "name": "Mew",
+  "height": 0.4,
+  "weight": 4.0,
+  "types": [
+    "Psychic"
+  ],
+  "spriteDefault": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/151.png",
+  "spriteShiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/shiny/151.png",
+  "color": "Pink",
+  "eggGroups": [
+    "Undiscovered"
+  ],
+  "evolutionChain": 151,
+  "flavorTextEntries": "Mew is said to possess the genetic composition of all Pokémon. It is capable of making itself invisible at will, so it entirely avoids notice even if it approaches people.",
+  "area": "Faraway Island",
+  "legendary": false,
+  "mythical": true
+}
+
+
+###
+
+PUT http://localhost:7070/api/pokemon/1
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "id": 1,
+  "name": "Green Guy",
+  "height": 0.7,
+  "weight": 6.9,
+  "types": [
+    "Grass",
+    "Poison"
+  ],
+  "spriteDefault": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/1.png",
+  "spriteShiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/shiny/1.png",
+  "color": "Green",
+  "eggGroups": [
+    "Monster",
+    "Grass"
+  ],
+  "evolutionChain": 1,
+  "flavorTextEntries": "Bulbasaur grows by soaking up the sun's rays.",
+  "area": "Grasslands",
+  "legendary": false,
+  "mythical": false
+}
+
+###
+
+DELETE http://localhost:7070/api/pokemon/1
+Authorization: Bearer {{jwt_token}}
+###
+
+GET http://localhost:7070/api/pokemon/evolution_chain/1
+Authorization: Bearer {{jwt_token}}
+
+###
+
+GET http://localhost:7070/api/pokemon/rarity/legendary
+Authorization: Bearer {{jwt_token}}
+
+###
+
+GET http://localhost:7070/api/pokemon/rarity/mythical
+Authorization: Bearer {{jwt_token}}
+
+###
+
+GET http://localhost:7070/api/pokemon/rarity/common
+Authorization: Bearer {{jwt_token}}
+
+###
+
+GET http://localhost:7070/api/pokemon/area/grasslands
+Authorization: Bearer {{jwt_token}}
+
+###
+
+GET http://localhost:7070/api/pokemon/type/psychic
+Authorization: Bearer {{jwt_token}}
+
+###
+
+GET http://localhost:7070/api/pokemon/egg_group/dragon
+Authorization: Bearer {{jwt_token}}
+
+###
+
+GET http://localhost:7070/api/pokemon/color/green
+Authorization: Bearer {{jwt_token}}
