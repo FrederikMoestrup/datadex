@@ -13,7 +13,7 @@ public class PopulateHoenn {
             em.getTransaction().begin();
 
             // Fetch Pokémon with IDs from 252 to 386 (Hoenn region Pokémon)
-            for (int id = 252; id <= 258; id++) {
+            for (int id = 252; id <= 386; id++) {
                 // Fetch Pokémon data using the PokemonService
                 var pokemonDTO = PokemonService.getPokemon(id);
 

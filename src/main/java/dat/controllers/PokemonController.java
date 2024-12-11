@@ -143,7 +143,6 @@ public class PokemonController {
     public void getByHabitat(Context ctx) throws ApiException {
         try {
             String habitat = ctx.pathParam("habitat");
-            habitat = habitat.substring(0, 1).toUpperCase() + habitat.substring(1);
             List<PokemonDTO> pokemonDTOS = pokemonDAO.getByHabitat(habitat);
             ctx.res().setStatus(200);
             ctx.json(pokemonDTOS, PokemonDTO.class);
@@ -155,7 +154,6 @@ public class PokemonController {
     public void getByType(Context ctx) throws ApiException {
         try {
             String type = ctx.pathParam("type");
-            type = type.substring(0, 1).toUpperCase() + type.substring(1);
             List<PokemonDTO> pokemonDTOS = pokemonDAO.getByType(type);
             ctx.res().setStatus(200);
             ctx.json(pokemonDTOS, PokemonDTO.class);
@@ -167,7 +165,6 @@ public class PokemonController {
     public void getByEggGroup(Context ctx) throws ApiException {
         try {
             String eggGroup = ctx.pathParam("group");
-            eggGroup = eggGroup.substring(0, 1).toUpperCase() + eggGroup.substring(1);
             List<PokemonDTO> pokemonDTOS = pokemonDAO.getByEggGroup(eggGroup);
             ctx.res().setStatus(200);
             ctx.json(pokemonDTOS, PokemonDTO.class);
@@ -178,7 +175,6 @@ public class PokemonController {
     public void getByColor(Context ctx) throws ApiException {
         try {
             String color = ctx.pathParam("color");
-            color = color.substring(0, 1).toUpperCase() + color.substring(1);
             List<PokemonDTO> pokemonDTOS = pokemonDAO.getByColor(color);
             ctx.res().setStatus(200);
             ctx.json(pokemonDTOS, PokemonDTO.class);

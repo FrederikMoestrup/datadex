@@ -49,7 +49,7 @@ GET http://localhost:7070/api/pokemon
 Authorization: Bearer {{jwt_token}}
 ###
 
-GET http://localhost:7070/api/pokemon/1
+GET http://localhost:7070/api/pokemon/258
 Authorization: Bearer {{jwt_token}}
 ###
 
@@ -139,7 +139,7 @@ Authorization: Bearer {{jwt_token}}
 
 ###
 
-GET http://localhost:7070/api/pokemon/type/fire
+GET http://localhost:7070/api/pokemon/type/water
 Authorization: Bearer {{jwt_token}}
 
 ###
