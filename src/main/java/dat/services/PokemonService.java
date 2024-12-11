@@ -118,10 +118,10 @@ public class PokemonService {
             String flavorText = getFlavorTextFromEmerald(speciesData);
             dto.setFlavorTextEntries(flavorText);
 
-            String area = speciesData.getPalParkEncounters() != null && !speciesData.getPalParkEncounters().isEmpty()
-                    ? speciesData.getPalParkEncounters().get(0).getArea().getName()
-                    : null;
-            dto.setArea(area);
+            dto.setHabitat(speciesData != null && speciesData.getHabitat() != null
+                    ? speciesData.getHabitat().getName()
+                    : null
+            );
 
             // Parse evolution_chain ID from URL
             dto.setEvolutionChain(speciesData.getEvolution_chain() != null

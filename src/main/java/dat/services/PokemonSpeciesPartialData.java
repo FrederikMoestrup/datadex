@@ -28,8 +28,14 @@ public class PokemonSpeciesPartialData {
         private String url;
     }
 
-    @JsonProperty("pal_park_encounters")
-    private List<PalParkEncounter> palParkEncounters;
+    @JsonProperty("habitat")
+    private Habitat habitat;
+
+    @Data
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class Habitat {
+        private String name;
+    }
 
     @Data
     @JsonIgnoreProperties(ignoreUnknown = true)
@@ -64,16 +70,5 @@ public class PokemonSpeciesPartialData {
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Color {
         private String name;
-    }
-    @Data
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class PalParkEncounter {
-        private Area area; // Map to the JSON's "area"
-
-        @Data
-        @JsonIgnoreProperties(ignoreUnknown = true)
-        public static class Area {
-            private String name;
-        }
     }
 }

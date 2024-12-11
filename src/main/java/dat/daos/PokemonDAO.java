@@ -5,7 +5,6 @@ import dat.entities.Pokemon;
 import dat.exceptions.ApiException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.NoResultException;
 
 import java.util.List;
 
@@ -71,7 +70,7 @@ public class PokemonDAO implements IDAO<PokemonDTO, Integer> {
                 pokemon.setFlavorTextEntries(pokemonDTO.getFlavorTextEntries());
                 pokemon.setLegendary(pokemonDTO.isLegendary());
                 pokemon.setMythical(pokemonDTO.isMythical());
-                pokemon.setArea(pokemonDTO.getArea());
+                pokemon.setHabitat(pokemonDTO.getHabitat());
             }
             em.getTransaction().commit();
             return new PokemonDTO(pokemon);
@@ -144,13 +143,13 @@ public class PokemonDAO implements IDAO<PokemonDTO, Integer> {
         }
     }
 
-    public List<PokemonDTO> getByArea(String area) throws ApiException {
+    public List<PokemonDTO> getByHabitat(String habitat) throws ApiException {
         try (EntityManager em = emf.createEntityManager()) {
-            List<PokemonDTO> pokemonDTOS = em.createQuery("SELECT new dat.dtos.PokemonDTO(p) FROM Pokemon p WHERE p.area = :area", PokemonDTO.class)
-                    .setParameter("area", area)
+            List<PokemonDTO> pokemonDTOS = em.createQuery("SELECT new dat.dtos.PokemonDTO(p) FROM Pokemon p WHERE p.habitat = :habitat", PokemonDTO.class)
+                    .setParameter("habitat", habitat)
                     .getResultList();
             if (pokemonDTOS.isEmpty()) {
-                throw new ApiException(404, "No pokemon found in that area");
+                throw new ApiException(404, "No pokemon found in that habitat");
             }
             return pokemonDTOS;
         }

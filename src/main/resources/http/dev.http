@@ -114,7 +114,7 @@ DELETE http://localhost:7070/api/pokemon/1
 Authorization: Bearer {{jwt_token}}
 ###
 
-GET http://localhost:7070/api/pokemon/evolution_chain/1
+GET http://localhost:7070/api/pokemon/evolution_chain/131
 Authorization: Bearer {{jwt_token}}
 
 ###
@@ -134,17 +134,17 @@ Authorization: Bearer {{jwt_token}}
 
 ###
 
-GET http://localhost:7070/api/pokemon/area/grasslands
+GET http://localhost:7070/api/pokemon/habitat/grassland
 Authorization: Bearer {{jwt_token}}
 
 ###
 
-GET http://localhost:7070/api/pokemon/type/psychic
+GET http://localhost:7070/api/pokemon/type/fire
 Authorization: Bearer {{jwt_token}}
 
 ###
 
-GET http://localhost:7070/api/pokemon/egg_group/dragon
+GET http://localhost:7070/api/pokemon/egg_group/monster
 Authorization: Bearer {{jwt_token}}
 
 ###

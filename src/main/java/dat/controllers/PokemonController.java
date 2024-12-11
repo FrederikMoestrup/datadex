@@ -86,7 +86,7 @@ public class PokemonController {
                 .check(d -> d.getEggGroups() != null && !d.getEggGroups().isEmpty(), "Egg groups must be set")
                 .check(d -> d.getEvolutionChain() >= 0, "Evolution chain ID must be non-negative")
                 .check(d -> d.getFlavorTextEntries() != null && !d.getFlavorTextEntries().isEmpty(), "Flavor text entries must be set")
-                .check(d -> d.getArea() != null && !d.getArea().isEmpty(), "Pokemon area must be set")
+                .check(d -> d.getHabitat() != null && !d.getHabitat().isEmpty(), "Pokemon habitat must be set")
                 .get();
     }
     public boolean validatePrimaryKey(Integer integer) {
@@ -140,15 +140,15 @@ public class PokemonController {
         }
     }
 
-    public void getByArea(Context ctx) throws ApiException {
+    public void getByHabitat(Context ctx) throws ApiException {
         try {
-            String area = ctx.pathParam("area");
-            area = area.substring(0, 1).toUpperCase() + area.substring(1);
-            List<PokemonDTO> pokemonDTOS = pokemonDAO.getByArea(area);
+            String habitat = ctx.pathParam("habitat");
+            habitat = habitat.substring(0, 1).toUpperCase() + habitat.substring(1);
+            List<PokemonDTO> pokemonDTOS = pokemonDAO.getByHabitat(habitat);
             ctx.res().setStatus(200);
             ctx.json(pokemonDTOS, PokemonDTO.class);
         } catch (ApiException e) {
-            throw new ApiException(404, "No pokemon found in that area");
+            throw new ApiException(404, "No pokemon found in that habitat");
         }
     }
 

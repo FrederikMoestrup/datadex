@@ -71,12 +71,12 @@ public class Pokemon {
     private boolean isMythical;
 
     @Setter
-    @Column(name = "area", nullable = false)
-    private String area;
+    @Column(name = "habitat", nullable = false)
+    private String habitat;
 
     public Pokemon(int id, String name, double height, double weight, List<String> types, String spriteDefault, String spriteShiny,
                    String color, List<String> eggGroups, int evolutionChain, String flavorTextEntries, boolean isLegendary,
-                   boolean isMythical, String area) {
+                   boolean isMythical, String habitat) {
         this.id = id;
         this.name = name;
         this.height = height;
@@ -90,7 +90,7 @@ public class Pokemon {
         this.flavorTextEntries = flavorTextEntries;
         this.isLegendary = isLegendary;
         this.isMythical = isMythical;
-        this.area = area;
+        this.habitat = habitat;
     }
 
     public Pokemon(PokemonDTO pokemonDTO) {
@@ -107,7 +107,7 @@ public class Pokemon {
         this.flavorTextEntries = pokemonDTO.getFlavorTextEntries();
         this.isLegendary = pokemonDTO.isLegendary();
         this.isMythical = pokemonDTO.isMythical();
-        this.area = pokemonDTO.getArea();
+        this.habitat = pokemonDTO.getHabitat();
     }
 
 }

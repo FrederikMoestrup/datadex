@@ -22,7 +22,7 @@ public class PokemonRoute {
             get("/rarity/legendary", pokemonController::getLegendary, Role.USER);
             get("/rarity/mythical", pokemonController::getMythical, Role.USER);
             get("/rarity/common", pokemonController::getCommon, Role.USER);
-            get("/area/{area}", pokemonController::getByArea, Role.USER);
+            get("/habitat/{habitat}", pokemonController::getByHabitat, Role.USER);
             get("/type/{type}", pokemonController::getByType, Role.USER);
             get("/egg_group/{group}", pokemonController::getByEggGroup, Role.USER);
             get("/color/{color}", pokemonController::getByColor, Role.USER);

@@ -23,7 +23,7 @@ public class PokemonDTO {
     private String flavorTextEntries;
     private boolean isLegendary;
     private boolean isMythical;
-    private String area;
+    private String habitat;
 
 
     // Constructor to create DTO from the entity
@@ -41,13 +41,13 @@ public class PokemonDTO {
         this.flavorTextEntries = pokemon.getFlavorTextEntries();
         this.isLegendary = pokemon.isLegendary();
         this.isMythical = pokemon.isMythical();
-        this.area = pokemon.getArea();
+        this.habitat = pokemon.getHabitat();
     }
 
     // Constructor for creating a DTO from raw data (optional)
     public PokemonDTO(int id, String name, double height, double weight, List<String> types, String spriteDefault,
                       String spriteShiny, String color, List<String> eggGroups, int evolutionChain,
-                      String flavorTextEntries, boolean isLegendary, boolean isMythical, String area) {
+                      String flavorTextEntries, boolean isLegendary, boolean isMythical, String habitat) {
         this.id = id;
         this.name = name;
         this.height = height;
@@ -61,6 +61,6 @@ public class PokemonDTO {
         this.flavorTextEntries = flavorTextEntries;
         this.isLegendary = isLegendary;
         this.isMythical = isMythical;
-        this.area = area;
+        this.habitat = habitat;
     }
 }
