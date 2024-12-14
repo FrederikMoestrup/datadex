@@ -134,7 +134,7 @@ Authorization: Bearer {{jwt_token}}
 
 ###
 
-GET http://localhost:7070/api/pokemon/habitat/grassland
+GET http://localhost:7070/api/pokemon/habitat/urban
 Authorization: Bearer {{jwt_token}}
 
 ###
