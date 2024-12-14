@@ -2,6 +2,7 @@ package dat.daos;
 
 import dat.dtos.PokemonDTO;
 import dat.entities.Pokemon;
+import dat.dtos.PokedexEntryDTO;
 import dat.exceptions.ApiException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -40,6 +41,15 @@ public class PokemonDAO implements IDAO<PokemonDTO, Integer> {
             return pokemonDTOS;
         }
     }
+
+
+    public List<PokedexEntryDTO> getPokedexEntries() {
+        try (EntityManager em = emf.createEntityManager()) {
+            List<PokedexEntryDTO> pokedexEntryDTOS = em.createQuery("SELECT new dat.dtos.PokedexEntryDTO(p) FROM Pokemon p order by p.id", PokedexEntryDTO.class).getResultList();
+            return pokedexEntryDTOS;
+        }
+    }
+
 
     @Override
     public PokemonDTO create(PokemonDTO pokemonDTO) {

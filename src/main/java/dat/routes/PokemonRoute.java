@@ -14,6 +14,7 @@ public class PokemonRoute {
 
         return () -> {
             get("/", pokemonController::getAll, Role.USER);
+            get("/pokedex", pokemonController::getPokedexEntries, Role.USER);
             get("/{id}", pokemonController::getById, Role.USER);
             post("/", pokemonController::create, Role.ADMIN);
             put("/{id}", pokemonController::update, Role.ADMIN);

@@ -4,6 +4,7 @@ import dat.config.HibernateConfig;
 
 import dat.daos.PokemonDAO;
 import dat.dtos.PokemonDTO;
+import dat.dtos.PokedexEntryDTO;
 import dat.exceptions.ApiException;
 import io.javalin.http.Context;
 import jakarta.persistence.EntityManagerFactory;
@@ -29,6 +30,11 @@ public class PokemonController {
         List<PokemonDTO> pokemonDTOS = pokemonDAO.getAll();
         ctx.res().setStatus(200);
         ctx.json(pokemonDTOS, PokemonDTO.class);
+    }
+    public void getPokedexEntries(Context ctx) {
+        List<PokedexEntryDTO> pokedexEntryDTOS = pokemonDAO.getPokedexEntries();
+        ctx.res().setStatus(200);
+        ctx.json(pokedexEntryDTOS, PokedexEntryDTO.class);
     }
 
     public void getById(Context ctx) throws ApiException {

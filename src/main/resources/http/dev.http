@@ -49,6 +49,10 @@ GET http://localhost:7070/api/pokemon
 Authorization: Bearer {{jwt_token}}
 ###
 
+GET http://localhost:7070/api/pokemon/pokedex
+Authorization: Bearer {{jwt_token}}
+###
+
 GET http://localhost:7070/api/pokemon/1
 Authorization: Bearer {{jwt_token}}
 ###
