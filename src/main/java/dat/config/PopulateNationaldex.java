@@ -13,7 +13,7 @@ public class PopulateNationaldex {
             em.getTransaction().begin();
 
             // Fetch Pokémon with IDs from 252 to 386 (Hoenn region Pokémon)
-            for (int id = 1; id <= 5; id++) {
+            for (int id = 1; id <= 386; id++) {
                 // Fetch Pokémon data using the PokemonService
                 var pokemonDTO = PokemonService.getPokemon(id);
 
