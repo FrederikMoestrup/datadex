@@ -71,6 +71,8 @@ public class PokemonDAO implements IDAO<PokemonDTO, Integer> {
                 pokemon.setLegendary(pokemonDTO.isLegendary());
                 pokemon.setMythical(pokemonDTO.isMythical());
                 pokemon.setHabitat(pokemonDTO.getHabitat());
+                pokemon.setOfficialArtDefault(pokemonDTO.getOfficialArtDefault());
+                pokemon.setOfficialArtShiny(pokemonDTO.getOfficialArtShiny());
             }
             em.getTransaction().commit();
             return new PokemonDTO(pokemon);

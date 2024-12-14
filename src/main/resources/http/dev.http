@@ -49,7 +49,7 @@ GET http://localhost:7070/api/pokemon
 Authorization: Bearer {{jwt_token}}
 ###
 
-GET http://localhost:7070/api/pokemon/258
+GET http://localhost:7070/api/pokemon/1
 Authorization: Bearer {{jwt_token}}
 ###
 
@@ -58,54 +58,60 @@ Content-Type: application/json
 Authorization: Bearer {{jwt_token}}
 
 {
-  "id": 151,
-  "name": "Mew",
-  "height": 0.4,
-  "weight": 4.0,
+  "id": 1,
+  "name": "bulbasaur2",
+  "height": 7.0,
+  "weight": 69.0,
   "types": [
-    "Psychic"
+    "grass",
+    "poison"
   ],
-  "spriteDefault": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/151.png",
-  "spriteShiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/shiny/151.png",
-  "color": "Pink",
+  "spriteDefault": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/1.png",
+  "spriteShiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/shiny/1.png",
+  "officialArtDefault": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  "officialArtShiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/1.png",
+  "color": "green",
   "eggGroups": [
-    "Undiscovered"
+    "monster",
+    "plant"
   ],
-  "evolutionChain": 151,
-  "flavorTextEntries": "Mew is said to possess the genetic composition of all Pokémon. It is capable of making itself invisible at will, so it entirely avoids notice even if it approaches people.",
-  "area": "Faraway Island",
-  "legendary": false,
-  "mythical": true
+  "evolutionChain": 1,
+  "flavorTextEntries": "BULBASAUR can be seen napping in bright\nsunlight. There is a seed on its back.\nBy soaking up the sun’s rays, the seed\ngrows progressively larger.",
+  "habitat": "grassland",
+  "mythical": false,
+  "legendary": false
 }
 
 
 ###
 
-PUT http://localhost:7070/api/pokemon/1
+PUT http://localhost:7070/api/pokemon/6
 Content-Type: application/json
 Authorization: Bearer {{jwt_token}}
 
 {
-  "id": 1,
-  "name": "Green Guy",
-  "height": 0.7,
-  "weight": 6.9,
+  "id": 6,
+  "name": "Green guy",
+  "height": 7.0,
+  "weight": 69.0,
   "types": [
-    "Grass",
-    "Poison"
+    "grass",
+    "poison"
   ],
   "spriteDefault": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/1.png",
   "spriteShiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/shiny/1.png",
-  "color": "Green",
+  "officialArtDefault": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  "officialArtShiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/1.png",
+  "color": "green",
   "eggGroups": [
-    "Monster",
-    "Grass"
+    "monster",
+    "plant"
   ],
   "evolutionChain": 1,
-  "flavorTextEntries": "Bulbasaur grows by soaking up the sun's rays.",
-  "area": "Grasslands",
-  "legendary": false,
-  "mythical": false
+  "flavorTextEntries": "BULBASAUR can be seen napping in bright\nsunlight. There is a seed on its back.\nBy soaking up the sun’s rays, the seed\ngrows progressively larger.",
+  "habitat": "grassland",
+  "mythical": false,
+  "legendary": false
 }
 
 ###
@@ -114,7 +120,7 @@ DELETE http://localhost:7070/api/pokemon/1
 Authorization: Bearer {{jwt_token}}
 ###
 
-GET http://localhost:7070/api/pokemon/evolution_chain/131
+GET http://localhost:7070/api/pokemon/evolution_chain/1
 Authorization: Bearer {{jwt_token}}
 
 ###
@@ -134,12 +140,12 @@ Authorization: Bearer {{jwt_token}}
 
 ###
 
-GET http://localhost:7070/api/pokemon/habitat/urban
+GET http://localhost:7070/api/pokemon/habitat/grassland
 Authorization: Bearer {{jwt_token}}
 
 ###
 
-GET http://localhost:7070/api/pokemon/type/water
+GET http://localhost:7070/api/pokemon/type/fire
 Authorization: Bearer {{jwt_token}}
 
 ###

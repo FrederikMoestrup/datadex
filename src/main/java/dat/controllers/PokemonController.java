@@ -82,6 +82,8 @@ public class PokemonController {
                 .check(d -> d.getTypes() != null && !d.getTypes().isEmpty(), "Pokemon types must be set")
                 .check(d -> d.getSpriteDefault() != null && !d.getSpriteDefault().isEmpty(), "Default sprite must be set")
                 .check(d -> d.getSpriteShiny() != null && !d.getSpriteShiny().isEmpty(), "Shiny sprite must be set")
+                .check(d -> d.getOfficialArtDefault() != null && !d.getOfficialArtDefault().isEmpty(), "Default official art must be set")
+                .check(d -> d.getOfficialArtShiny() != null && !d.getOfficialArtShiny().isEmpty(), "Shiny official art must be set")
                 .check(d -> d.getColor() != null && !d.getColor().isEmpty(), "Pokemon color must be set")
                 .check(d -> d.getEggGroups() != null && !d.getEggGroups().isEmpty(), "Egg groups must be set")
                 .check(d -> d.getEvolutionChain() >= 0, "Evolution chain ID must be non-negative")
