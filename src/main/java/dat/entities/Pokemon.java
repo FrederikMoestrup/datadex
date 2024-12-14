@@ -45,6 +45,14 @@ public class Pokemon {
     private String spriteShiny;
 
     @Setter
+    @Column(name = "official_art_default", nullable = false)
+    private String officialArtDefault;
+
+    @Setter
+    @Column(name = "official_art_shiny", nullable = false)
+    private String officialArtShiny;
+
+    @Setter
     @Column(name = "color", nullable = false)
     private String color;
 
@@ -76,7 +84,7 @@ public class Pokemon {
 
     public Pokemon(int id, String name, double height, double weight, List<String> types, String spriteDefault, String spriteShiny,
                    String color, List<String> eggGroups, int evolutionChain, String flavorTextEntries, boolean isLegendary,
-                   boolean isMythical, String habitat) {
+                   boolean isMythical, String habitat, String officialArtDefault, String officialArtShiny) {
         this.id = id;
         this.name = name;
         this.height = height;
@@ -91,6 +99,8 @@ public class Pokemon {
         this.isLegendary = isLegendary;
         this.isMythical = isMythical;
         this.habitat = habitat;
+        this.officialArtDefault = officialArtDefault;
+        this.officialArtShiny = officialArtShiny;
     }
 
     public Pokemon(PokemonDTO pokemonDTO) {
@@ -108,6 +118,8 @@ public class Pokemon {
         this.isLegendary = pokemonDTO.isLegendary();
         this.isMythical = pokemonDTO.isMythical();
         this.habitat = pokemonDTO.getHabitat();
+        this.officialArtDefault = pokemonDTO.getOfficialArtDefault();
+        this.officialArtShiny = pokemonDTO.getOfficialArtShiny();
     }
 
 }

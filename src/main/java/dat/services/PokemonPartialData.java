@@ -20,6 +20,9 @@ public class PokemonPartialData {
     @Data
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Sprites {
+
+        @JsonProperty("other") // Map the JSON key "versions"
+        private Other other;
         @JsonProperty("versions") // Map the JSON key "versions"
         private Versions versions;
 
@@ -44,6 +47,22 @@ public class PokemonPartialData {
                     @JsonProperty("front_shiny") // Map the JSON key "front_shiny"
                     private String frontShiny;
                 }
+            }
+        }
+        @Data
+        @JsonIgnoreProperties(ignoreUnknown = true)
+        public static class Other {
+            @JsonProperty("official-artwork") // Map the JSON key "generation-iii"
+            private OfficialArtwork officialArtwork;
+
+            @Data
+            @JsonIgnoreProperties(ignoreUnknown = true)
+            public static class OfficialArtwork {
+                @JsonProperty("front_default") // Map the JSON key "front_default"
+                private String frontDefault;
+                @JsonProperty("front_shiny") // Map the JSON key "front_shiny"
+                private String frontShiny;
+
             }
         }
     }

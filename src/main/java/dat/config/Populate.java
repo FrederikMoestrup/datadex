@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Populate {
-
+/*
     public static void populate() {
         EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory("datadex");
 
@@ -105,4 +105,6 @@ public class Populate {
 
         return pokemons;
     }
+
+ */
 }

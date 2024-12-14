@@ -102,6 +102,21 @@ public class PokemonService {
                             : null
             );
 
+            dto.setOfficialArtDefault(
+                    pokemonData.getSprites() != null &&
+                            pokemonData.getSprites().getOther() != null &&
+                            pokemonData.getSprites().getOther().getOfficialArtwork() != null
+                            ? pokemonData.getSprites().getOther().getOfficialArtwork().getFrontDefault()
+                            : null
+            );
+            dto.setOfficialArtShiny(
+                    pokemonData.getSprites() != null &&
+                            pokemonData.getSprites().getOther() != null &&
+                            pokemonData.getSprites().getOther().getOfficialArtwork() != null
+                            ? pokemonData.getSprites().getOther().getOfficialArtwork().getFrontShiny()
+                            : null
+            );
+
             dto.setColor(speciesData != null && speciesData.getColor() != null
                     ? speciesData.getColor().getName()
                     : null
