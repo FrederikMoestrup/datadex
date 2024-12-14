@@ -36,7 +36,7 @@ public class PokemonDAO implements IDAO<PokemonDTO, Integer> {
     @Override
     public List<PokemonDTO> getAll() {
         try (EntityManager em = emf.createEntityManager()) {
-            List<PokemonDTO> pokemonDTOS = em.createQuery("SELECT new dat.dtos.PokemonDTO(p) FROM Pokemon p", PokemonDTO.class).getResultList();
+            List<PokemonDTO> pokemonDTOS = em.createQuery("SELECT new dat.dtos.PokemonDTO(p) FROM Pokemon p order by p.id", PokemonDTO.class).getResultList();
             return pokemonDTOS;
         }
     }
@@ -100,7 +100,7 @@ public class PokemonDAO implements IDAO<PokemonDTO, Integer> {
 
     public List<PokemonDTO> getByEvolutionChain(int evolutionChain) throws ApiException {
         try (EntityManager em = emf.createEntityManager()) {
-            List<PokemonDTO> pokemonDTOS = em.createQuery("SELECT new dat.dtos.PokemonDTO(p) FROM Pokemon p WHERE p.evolutionChain = :evolutionChain", PokemonDTO.class)
+            List<PokemonDTO> pokemonDTOS = em.createQuery("SELECT new dat.dtos.PokemonDTO(p) FROM Pokemon p WHERE p.evolutionChain = :evolutionChain order by p.id", PokemonDTO.class)
                     .setParameter("evolutionChain", evolutionChain)
                     .getResultList();
             if (pokemonDTOS.isEmpty()) {
@@ -112,7 +112,7 @@ public class PokemonDAO implements IDAO<PokemonDTO, Integer> {
 
     public List<PokemonDTO> getLegendary() throws ApiException {
         try (EntityManager em = emf.createEntityManager()) {
-            List<PokemonDTO> pokemonDTOS = em.createQuery("SELECT new dat.dtos.PokemonDTO(p) FROM Pokemon p WHERE p.isLegendary = true", PokemonDTO.class)
+            List<PokemonDTO> pokemonDTOS = em.createQuery("SELECT new dat.dtos.PokemonDTO(p) FROM Pokemon p WHERE p.isLegendary = true order by p.id", PokemonDTO.class)
                     .getResultList();
             if (pokemonDTOS.isEmpty()) {
                 throw new ApiException(404, "No legendaries found");
@@ -123,7 +123,7 @@ public class PokemonDAO implements IDAO<PokemonDTO, Integer> {
 
     public List<PokemonDTO> getMythical() throws ApiException {
         try (EntityManager em = emf.createEntityManager()) {
-            List<PokemonDTO> pokemonDTOS = em.createQuery("SELECT new dat.dtos.PokemonDTO(p) FROM Pokemon p WHERE p.isMythical = true", PokemonDTO.class)
+            List<PokemonDTO> pokemonDTOS = em.createQuery("SELECT new dat.dtos.PokemonDTO(p) FROM Pokemon p WHERE p.isMythical = true order by p.id", PokemonDTO.class)
                     .getResultList();
             if (pokemonDTOS.isEmpty()) {
                 throw new ApiException(404, "No mythical pokemon found");
@@ -134,7 +134,7 @@ public class PokemonDAO implements IDAO<PokemonDTO, Integer> {
 
     public List<PokemonDTO> getCommon() throws ApiException {
         try (EntityManager em = emf.createEntityManager()) {
-            List<PokemonDTO> pokemonDTOS = em.createQuery("SELECT new dat.dtos.PokemonDTO(p) FROM Pokemon p WHERE p.isLegendary = false AND p.isMythical = false", PokemonDTO.class)
+            List<PokemonDTO> pokemonDTOS = em.createQuery("SELECT new dat.dtos.PokemonDTO(p) FROM Pokemon p WHERE p.isLegendary = false AND p.isMythical = false order by p.id", PokemonDTO.class)
                     .getResultList();
             if (pokemonDTOS.isEmpty()) {
                 throw new ApiException(404, "No common pokemon found");
@@ -145,7 +145,7 @@ public class PokemonDAO implements IDAO<PokemonDTO, Integer> {
 
     public List<PokemonDTO> getByHabitat(String habitat) throws ApiException {
         try (EntityManager em = emf.createEntityManager()) {
-            List<PokemonDTO> pokemonDTOS = em.createQuery("SELECT new dat.dtos.PokemonDTO(p) FROM Pokemon p WHERE p.habitat = :habitat", PokemonDTO.class)
+            List<PokemonDTO> pokemonDTOS = em.createQuery("SELECT new dat.dtos.PokemonDTO(p) FROM Pokemon p WHERE p.habitat = :habitat order by p.id", PokemonDTO.class)
                     .setParameter("habitat", habitat)
                     .getResultList();
             if (pokemonDTOS.isEmpty()) {
@@ -157,7 +157,7 @@ public class PokemonDAO implements IDAO<PokemonDTO, Integer> {
 
     public List<PokemonDTO> getByType(String type) throws ApiException {
         try (EntityManager em = emf.createEntityManager()) {
-            List<PokemonDTO> pokemonDTOS = em.createQuery("SELECT new dat.dtos.PokemonDTO(p) FROM Pokemon p JOIN p.types t WHERE t = :type", PokemonDTO.class)
+            List<PokemonDTO> pokemonDTOS = em.createQuery("SELECT new dat.dtos.PokemonDTO(p) FROM Pokemon p JOIN p.types t WHERE t = :type order by p.id", PokemonDTO.class)
                     .setParameter("type", type)
                     .getResultList();
             if (pokemonDTOS.isEmpty()) {
@@ -169,7 +169,7 @@ public class PokemonDAO implements IDAO<PokemonDTO, Integer> {
 
     public List<PokemonDTO> getByEggGroup(String eggGroup) throws ApiException {
         try (EntityManager em = emf.createEntityManager()) {
-            List<PokemonDTO> pokemonDTOS = em.createQuery("SELECT new dat.dtos.PokemonDTO(p) FROM Pokemon p JOIN p.eggGroups e WHERE e = :eggGroup", PokemonDTO.class)
+            List<PokemonDTO> pokemonDTOS = em.createQuery("SELECT new dat.dtos.PokemonDTO(p) FROM Pokemon p JOIN p.eggGroups e WHERE e = :eggGroup order by p.id", PokemonDTO.class)
                     .setParameter("eggGroup", eggGroup)
                     .getResultList();
             if (pokemonDTOS.isEmpty()) {
@@ -180,7 +180,7 @@ public class PokemonDAO implements IDAO<PokemonDTO, Integer> {
     }
     public List<PokemonDTO> getByColor(String color) throws ApiException {
         try (EntityManager em = emf.createEntityManager()) {
-            List<PokemonDTO> pokemonDTOS = em.createQuery("SELECT new dat.dtos.PokemonDTO(p) FROM Pokemon p WHERE p.color = :color", PokemonDTO.class)
+            List<PokemonDTO> pokemonDTOS = em.createQuery("SELECT new dat.dtos.PokemonDTO(p) FROM Pokemon p WHERE p.color = :color order by p.id", PokemonDTO.class)
                     .setParameter("color", color)
                     .getResultList();
             if (pokemonDTOS.isEmpty()) {
