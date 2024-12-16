@@ -5,7 +5,7 @@ GET http://localhost:7070/api/auth/test/
 POST http://localhost:7070/api/auth/register/
 
 {
-    "username": "admin",
+    "username": "user",
     "password": "test123"
 }
 
@@ -46,10 +46,6 @@ Authorization: Bearer {{jwt_token}}
 ###
 
 GET http://localhost:7070/api/pokemon
-Authorization: Bearer {{jwt_token}}
-###
-
-GET http://localhost:7070/api/pokemon/pokedex
 Authorization: Bearer {{jwt_token}}
 ###
 
@@ -161,3 +157,53 @@ Authorization: Bearer {{jwt_token}}
 
 GET http://localhost:7070/api/pokemon/color/green
 Authorization: Bearer {{jwt_token}}
+
+###
+
+GET http://localhost:7070/api/pokedex
+Authorization: Bearer {{jwt_token}}
+###
+
+GET http://localhost:7070/api/pokedex/1
+Authorization: Bearer {{jwt_token}}
+###
+
+GET http://localhost:7070/api/pokedex/evolution_chain/1
+Authorization: Bearer {{jwt_token}}
+
+###
+
+GET http://localhost:7070/api/pokedex/rarity/legendary
+Authorization: Bearer {{jwt_token}}
+
+###
+
+GET http://localhost:7070/api/pokedex/rarity/mythical
+Authorization: Bearer {{jwt_token}}
+
+###
+
+GET http://localhost:7070/api/pokedex/rarity/common
+Authorization: Bearer {{jwt_token}}
+
+###
+
+GET http://localhost:7070/api/pokedex/habitat/grassland
+Authorization: Bearer {{jwt_token}}
+
+###
+
+GET http://localhost:7070/api/pokemon/type/fire
+Authorization: Bearer {{jwt_token}}
+
+###
+
+GET http://localhost:7070/api/pokemon/egg_group/monster
+Authorization: Bearer {{jwt_token}}
+
+###
+
+GET http://localhost:7070/api/pokemon/color/green
+Authorization: Bearer {{jwt_token}}
+
+###
