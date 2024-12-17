@@ -1,5 +1,6 @@
 package dat.security.entities;
 
+import dat.entities.Pokemon;
 import jakarta.persistence.*;
 import lombok.*;
 import org.mindrot.jbcrypt.BCrypt;
@@ -80,5 +81,30 @@ public class User implements Serializable, ISecurityUser {
                     role.getUsers().remove(this);
                 });
     }
+
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "user_favorites", // Name of the join table
+            joinColumns = @JoinColumn(name = "user_name", referencedColumnName = "username"),
+            inverseJoinColumns = @JoinColumn(name = "pokemon_id", referencedColumnName = "id")
+    )
+    private Set<Pokemon> favorites = new HashSet<>();
+
+    // Method to add a favorite Pokémon
+    public void addFavorite(Pokemon pokemon) {
+        if (pokemon != null && !favorites.contains(pokemon)) {
+            favorites.add(pokemon);
+        }
+    }
+
+
+    // Method to remove a favorite Pokémon
+    public void removeFavorite(Pokemon pokemon) {
+        if (pokemon != null && favorites.contains(pokemon)) {
+            favorites.remove(pokemon);
+        }
+    }
+
 }
 

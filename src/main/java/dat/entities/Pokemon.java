@@ -1,12 +1,15 @@
 package dat.entities;
 
 import dat.dtos.PokemonDTO;
+import dat.security.entities.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @NoArgsConstructor
@@ -82,6 +85,9 @@ public class Pokemon {
     @Column(name = "habitat", nullable = false)
     private String habitat;
 
+    @ManyToMany(mappedBy = "favorites", fetch = FetchType.LAZY)
+    private Set<User> users = new HashSet<>();
+
     public Pokemon(int id, String name, double height, double weight, List<String> types, String spriteDefault, String spriteShiny,
                    String color, List<String> eggGroups, int evolutionChain, String flavorTextEntries, boolean isLegendary,
                    boolean isMythical, String habitat, String officialArtDefault, String officialArtShiny) {
@@ -121,5 +127,8 @@ public class Pokemon {
         this.officialArtDefault = pokemonDTO.getOfficialArtDefault();
         this.officialArtShiny = pokemonDTO.getOfficialArtShiny();
     }
+
+
+
 
 }
