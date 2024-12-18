@@ -1,4 +1,4 @@
-package dat.security.daos;
+package dat.daos;
 
 import dat.dtos.PokemonDTO;
 import dat.dtos.PokedexEntryDTO;

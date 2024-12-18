@@ -208,17 +208,17 @@ Authorization: Bearer {{jwt_token}}
 
 ###
 
-GET http://localhost:7070/api/user/user
+GET http://localhost:7070/api/user/user/favorites
 Authorization: Bearer {{jwt_token}}
 
 ###
 
-PUT http://localhost:7070/api/user/user/add_pokemon/1
+PUT http://localhost:7070/api/user/user/favorites/add/1
 Authorization: Bearer {{jwt_token}}
 
 ###
 
-PUT http://localhost:7070/api/user/user/remove_pokemon/1
+PUT http://localhost:7070/api/user/user/favorites/remove/1
 Authorization: Bearer {{jwt_token}}
 
 ###

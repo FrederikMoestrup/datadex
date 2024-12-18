@@ -1,4 +1,4 @@
-package dat.security.controllers;
+package dat.controllers;
 
 import dat.config.HibernateConfig;
 
@@ -6,7 +6,7 @@ import dat.config.HibernateConfig;
 import dat.dtos.PokemonDTO;
 import dat.dtos.PokedexEntryDTO;
 import dat.exceptions.ApiException;
-import dat.security.daos.UserDAO;
+import dat.daos.UserDAO;
 import io.javalin.http.Context;
 import jakarta.persistence.EntityManagerFactory;
 
