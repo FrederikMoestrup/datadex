@@ -20,16 +20,16 @@ public class PopulateTrainers {
             // Create trainers for Kanto
             List<Trainer> kantoTrainers = getKantoTrainers(em);
 
-            // Create trainers for Johto (to be implemented)
-            // List<Trainer> johtoTrainers = getJohtoTrainers(em);
+            // Create trainers for Johto
+            List<Trainer> johtoTrainers = getJohtoTrainers(em);
 
-            // Create trainers for Hoenn (to be implemented)
-            // List<Trainer> hoennTrainers = getHoennTrainers(em);
+            // Create trainers for Hoenn
+            List<Trainer> hoennTrainers = getHoennTrainers(em);
 
             // Persist all trainers
             kantoTrainers.forEach(em::persist);
-            // johtoTrainers.forEach(em::persist);
-            // hoennTrainers.forEach(em::persist);
+            johtoTrainers.forEach(em::persist);
+            hoennTrainers.forEach(em::persist);
 
             em.getTransaction().commit();
         }

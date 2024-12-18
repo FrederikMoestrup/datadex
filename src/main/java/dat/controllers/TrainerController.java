@@ -33,6 +33,24 @@ public class TrainerController {
         ctx.json(trainerDTOS, PokemonDTO.class);
     }
 
+    public void getAllKanto(Context ctx) {
+        List<TrainerDTO> trainerDTOS = trainerDAO.getAllKanto();
+        ctx.res().setStatus(200);
+        ctx.json(trainerDTOS, PokemonDTO.class);
+    }
+
+    public void getAllJohto(Context ctx) {
+        List<TrainerDTO> trainerDTOS = trainerDAO.getAllJohto();
+        ctx.res().setStatus(200);
+        ctx.json(trainerDTOS, PokemonDTO.class);
+    }
+
+    public void getAllHoenn(Context ctx) {
+        List<TrainerDTO> trainerDTOS = trainerDAO.getAllHoenn();
+        ctx.res().setStatus(200);
+        ctx.json(trainerDTOS, PokemonDTO.class);
+    }
+
 
 
 }

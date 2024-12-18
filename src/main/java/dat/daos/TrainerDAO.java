@@ -33,7 +33,26 @@ public class TrainerDAO {
         }
     }
 
+    public List<TrainerDTO> getAllKanto() {
+        try (EntityManager em = emf.createEntityManager()) {
+            List<TrainerDTO> trainerDTOS = em.createQuery("SELECT new dat.dtos.TrainerDTO(t) FROM Trainer t where t.region = 'Kanto' order by t.encounterNumber", TrainerDTO.class).getResultList();
+            return trainerDTOS;
+        }
+    }
 
+    public List<TrainerDTO> getAllJohto() {
+        try (EntityManager em = emf.createEntityManager()) {
+            List<TrainerDTO> trainerDTOS = em.createQuery("SELECT new dat.dtos.TrainerDTO(t) FROM Trainer t where t.region = 'Johto' order by t.encounterNumber", TrainerDTO.class).getResultList();
+            return trainerDTOS;
+        }
+    }
+
+    public List<TrainerDTO> getAllHoenn() {
+        try (EntityManager em = emf.createEntityManager()) {
+            List<TrainerDTO> trainerDTOS = em.createQuery("SELECT new dat.dtos.TrainerDTO(t) FROM Trainer t where t.region = 'Hoenn' order by t.encounterNumber", TrainerDTO.class).getResultList();
+            return trainerDTOS;
+        }
+    }
 
 
 

@@ -225,3 +225,18 @@ Authorization: Bearer {{jwt_token}}
 
 GET http://localhost:7070/api/trainer
 Authorization: Bearer {{jwt_token}}
+
+###
+
+GET http://localhost:7070/api/trainer/kanto
+Authorization: Bearer {{jwt_token}}
+
+###
+
+GET http://localhost:7070/api/trainer/johto
+Authorization: Bearer {{jwt_token}}
+
+###
+
+GET http://localhost:7070/api/trainer/hoenn
+Authorization: Bearer {{jwt_token}}

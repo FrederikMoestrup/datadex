@@ -15,6 +15,9 @@ public class TrainerRoute {
 
         return () -> {
             get("/", trainerController::getAll, Role.USER);
+            get("/kanto", trainerController::getAllKanto, Role.USER);
+            get("/johto", trainerController::getAllJohto, Role.USER);
+            get("/hoenn", trainerController::getAllHoenn, Role.USER);
         };
     }
 }
