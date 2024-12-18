@@ -2,6 +2,7 @@ package dat.config;
 
 
 import dat.entities.Pokemon;
+import dat.entities.Trainer;
 import dat.security.entities.Role;
 import dat.security.entities.User;
 import jakarta.persistence.EntityManagerFactory;
@@ -45,6 +46,7 @@ public class HibernateConfig {
         configuration.addAnnotatedClass(User.class);
         configuration.addAnnotatedClass(Role.class);
         configuration.addAnnotatedClass(Pokemon.class);
+        configuration.addAnnotatedClass(Trainer.class);
     }
 
     private static EntityManagerFactory createEMF(boolean forTest, String DBName) {

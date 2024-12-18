@@ -222,3 +222,6 @@ PUT http://localhost:7070/api/user/user/favorites/remove/1
 Authorization: Bearer {{jwt_token}}
 
 ###
+
+GET http://localhost:7070/api/trainer
+Authorization: Bearer {{jwt_token}}

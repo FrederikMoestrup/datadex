@@ -10,13 +10,14 @@ public class Routes {
     private final PokemonRoute pokemonRoute = new PokemonRoute();
     private final PokedexEntryRoute pokedexEntryRoute = new PokedexEntryRoute();
     private final UserRoute userRoute = new UserRoute();
+    private final TrainerRoute trainerRoute = new TrainerRoute();
 
     public EndpointGroup getRoutes() {
         return () -> {
             path("/pokemon", pokemonRoute.getRoutes());
             path("/pokedex", pokedexEntryRoute.getRoutes());
             path("/user", userRoute.getRoutes());
-
+            path("/trainer", trainerRoute.getRoutes());
         };
     }
 }
