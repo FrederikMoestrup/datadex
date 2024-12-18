@@ -9,7 +9,7 @@ public class Main {
         PopulateNationaldex.populate();
         PopulateTrainers.populate();
         ApplicationConfig.startServer(7070);
-
+        //hello
     }
 }
 
