@@ -44,7 +44,6 @@
             <version>${jbcrypt.version}</version>
         </dependency>
 
-
         <!-- SLF4J API -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -79,6 +78,7 @@
             <version>1.18.34</version>
             <scope>provided</scope>
         </dependency>
+
         <!--  DB    -->
 
         <dependency>
@@ -102,19 +102,6 @@
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-hikaricp</artifactId>
             <version>${hibernate-version}</version>
-        </dependency>
-
-        <!--  Logging   -->
-
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.5.7</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>2.0.16</version>
         </dependency>
 
         <!--  TESTING      -->
